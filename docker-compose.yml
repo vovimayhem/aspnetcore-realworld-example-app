@@ -1,0 +1,16 @@
+version: "3.4"
+
+services:
+  web:
+    image: vovimayhem/realworld-backend-aspnetcore:development
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    ports:
+    - published: 5000
+      target: 5000
+    volumes:
+    - .:/app
+    command: dotnet watch run
+    working_dir: /app/src/Conduit
+    entrypoint: /app/dev-entrypoint

@@ -278,3 +278,5 @@ tools/Cake.CoreCLR
 .vscode
 tools
 .dotnet
+
+# Since we've set up the project dir as the 
