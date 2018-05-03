@@ -279,4 +279,10 @@ tools/Cake.CoreCLR
 tools
 .dotnet
 
-# Since we've set up the project dir as the 
+# Since we've set up the project dir as the home of the container, we'll
+also ignore home artifacts:
+/.nuget
+/.aspnet
+
+# Ignore the database files:
+/src/Conduit/realworld.db
