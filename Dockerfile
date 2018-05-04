@@ -1,5 +1,4 @@
-# Stage I: Builder
-FROM microsoft/dotnet:sdk AS builder
+FROM microsoft/dotnet:sdk
 
 ENV HOME=/app NUGET_PACKAGES=/usr/nuget/packages
 
@@ -17,7 +16,4 @@ RUN cd /app/src/Conduit && dotnet publish --configuration Release
 
 WORKDIR /app/src/Conduit/bin/Release/netcoreapp2.0/publish
 
-# Expose the port 5000:
-EXPOSE 5000
-
-ENTRYPOINT ["dotnet", "Conduit.dll"]
+CMD ["dotnet", "Conduit.dll"]
