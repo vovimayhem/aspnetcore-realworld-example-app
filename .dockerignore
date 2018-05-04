@@ -290,5 +290,6 @@ also ignore home artifacts:
 # Ignore build files
 /src/Conduit/bin/Release
 
-# Ignore history files
-*_hist*
+# Ignore Dockerfiles
+*Dockerfile
+.dockerignore
