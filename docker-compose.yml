@@ -13,4 +13,4 @@ services:
     - .:/app
     command: dotnet watch run
     working_dir: /app/src/Conduit
-    entrypoint: /app/dev-entrypoint
+    # entrypoint: /app/dev-entrypoint
