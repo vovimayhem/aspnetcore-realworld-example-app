@@ -1,4 +1,6 @@
-FROM microsoft/dotnet:sdk
+################################################################################
+# STAGE I: BUILDER
+FROM microsoft/dotnet:sdk AS builder
 
 ENV HOME=/app NUGET_PACKAGES=/usr/nuget/packages
 
@@ -14,6 +16,12 @@ RUN dotnet restore
 COPY . /app
 RUN cd /app/src/Conduit && dotnet publish --configuration Release
 
-WORKDIR /app/src/Conduit/bin/Release/netcoreapp2.0/publish
+################################################################################
+# STAGE II: PUBLISHED
+FROM microsoft/dotnet:runtime
+
+COPY --from=builder /app/src/Conduit/bin/Release/netcoreapp2.0/publish /app
+
+WORKDIR /app
 
 CMD ["dotnet", "Conduit.dll"]
